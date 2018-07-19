@@ -1,11 +1,10 @@
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
-  entry: './client/app.js',
+  entry: './client/app.jsx',
   output: {
     filename: 'compiled.js',
-    path: path.resolve(__dirname, 'public')
+    path: path.resolve(__dirname, 'public'),
   },
   module: {
     rules: [
@@ -15,11 +14,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           query: {
-            presets: ['env', 'react']
-          }
-        }
-      }
-    ]
+            presets: ['env', 'react'],
+          },
+        },
+      },
+    ],
   },
   watch: true,
-}
+};
