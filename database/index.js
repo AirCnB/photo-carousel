@@ -10,6 +10,8 @@ db.once('open', () => {
   console.log('Connection established');
 });
 
+
+
 const photoSchema = mongoose.Schema({
   id: { type: Number, unique: true, required: true },
   photos: [
@@ -21,6 +23,18 @@ const photoSchema = mongoose.Schema({
 });
 
 const Page = mongoose.model('Page', photoSchema);
+
+const reDirect = (num, callback) => {
+  num = Number(num)
+  console.log('inside redirect ', num)
+  Page.find({id: num}, (err, docs) => {
+    if (err) {
+      console.log(err);
+    } else {
+      callback(null, docs)
+    }
+  })
+}
 
 const save = (data) => {
   Page.insertMany(data, (err) => {
@@ -87,3 +101,4 @@ const getData = () => {
 };
 
 module.exports.getData = getData;
+module.exports.reDirect = reDirect;
