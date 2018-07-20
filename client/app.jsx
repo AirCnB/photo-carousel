@@ -16,10 +16,13 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/newPage')
+    let id = window.location.pathname.slice(8);
+    id = parseInt(id.substring(0, id.length))
+    axios.get(`/photos/${id}`)
     .then(res => this.setState({
       pictures: res.data[0]
     }))
+    .then(res => {console.log(res)})
   }
 
   render() {

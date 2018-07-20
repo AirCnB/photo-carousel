@@ -4,26 +4,17 @@ const db = require('../database/index.js');
 const app = express();
 const port = 3001;
 
-app.use(express.static('public'));
+app.use('/aircnb/:id', express.static('public'));
 
-let stuff;
-
-app.get('/newPage', (req, res) => {
-  res.send(stuff)
-})
-
-app.get('/:id', function(req, res){
-  let id = req.params.id;
+app.get('/photos/:id', (req, res) => {
+  const id = Number(req.params.id);
   db.reDirect(id, (err, docs) => {
     if (err) {
       console.log(err);
     } else {
-      stuff = docs;
-      let path = 'index.html';
-      res.sendFile(path, {root: './public'});
+      res.send(docs);
     }
-  })
-
+  });
 });
 
 app.listen(port, () => {

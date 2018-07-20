@@ -1,6 +1,6 @@
-//const database = require('../database/index.js');
+// const database = require('../database/index.js');
 // const mongoose = require('mongoose');
-// //test Connection
+// test Connection
 // describe('Seeded database', function() {
 //
 //   beforeAll(() => {
@@ -18,8 +18,8 @@
 //
 // })
 
-//test collection contains 100 models
+//  test collection contains 100 models
 
-//test that each model contains a unique id 0 - 99
+//  test that each model contains a unique id 0 - 99
 
-//test that first photo of each model match its id
+//  test that first photo of each model match its id
