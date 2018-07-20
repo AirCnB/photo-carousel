@@ -6,6 +6,11 @@ const port = 3001;
 
 app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+  console.log('req path '. req.path)
+  res.send(req.path)
+})
+
 app.listen(port, () => {
   console.log('Listening on port', port);
 });

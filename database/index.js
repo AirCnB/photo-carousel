@@ -25,12 +25,13 @@ const Page = mongoose.model('Page', photoSchema);
 const save = (data) => {
   Page.insertMany(data, (err) => {
     if (err) {
-      console.log(err);
+      //console.log(err);
     }
   });
 };
 
 const insertData = (data) => {
+  data.pop();
   const collection = [];
   let ind = 0;
   const repeat = function (dataArr, index) {
