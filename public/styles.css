@@ -1,0 +1,19 @@
+
+
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15vw 20vw;
+  background-image: url(https://s3-us-west-1.amazonaws.com/aircnbphotos/AirCnB+Photos/photo0.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+}
+
+.content {
+  font-family: sans-serif;
+  line-height: 2;
+  color: white;
+  width: 25em;
+  max-width: 100%;
+}
