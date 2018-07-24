@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import styles from './styles/app.css';
+import Carousel from './carousel.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      carousel: false,
       pictures: {
         id: 1,
         photos: [
@@ -25,10 +27,16 @@ class App extends React.Component {
     }))
   }
 
+  renderCarousel() {
+    this.setState({
+      carousel: !this.state.carousel
+    })
+  }
+
   render() {
     console.log(this.state.pictures)
     return (
-      <div className="app">
+      <div>
       <div className="container" style={{backgroundImage: `url(${this.state.pictures.photos[0].url})`}}>
         <div className="content">
           <div>
@@ -38,7 +46,7 @@ class App extends React.Component {
           </div>
         </div>
         <div>
-          <button className="viewphotos">View Photos</button>
+          <button className="viewphotos" onClick={this.renderCarousel.bind(this)}>View Photos</button>
           <button className="share">
             <div>
               <svg className="largescreen" viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false">
@@ -63,6 +71,9 @@ class App extends React.Component {
           </svg>
         </div>
       </div>
+      {this.state.carousel &&
+        <Carousel pictures={this.state.pictures}/>
+      }
       </div>
     )
   }
