@@ -1,4 +1,6 @@
-
+body {
+  margin: 10px 0 10px 0
+}
 
 .container {
   width: 100%;
@@ -6,7 +8,10 @@
   padding: 15vw 20vw;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center 50%;
+  background-position: 50% 50%;
+  position: relative;
+  min-height: 552px;
+  cursor: pointer
 }
 
 .content {
@@ -17,8 +22,91 @@
   max-width: 100%;
 }
 
-button {
+.save, .share, .viewphotos {
   position: absolute;
-  left: 5%;
-  top: 5%
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  padding: 8px 16px 8px 16px;
+  font-weight: 500;
+  border-width: 1px;
+  border-color: transparent;
+  color: #484848;
+  border-radius: 4px;
+  line-height: 18px;
+  box-shadow: 0 1px 2px -2px gray;
+  cursor: pointer
+}
+
+.viewphotos {
+  left: 20px;
+  bottom: 20px;
+}
+
+@media screen and (max-width: 1128px) {
+  .container {
+    min-height: 441.6px
+  }
+}
+
+.share {
+  right: 131px;
+  top: 20px;
+}
+
+.save {
+  right: 20px;
+  top: 20px;
+}
+
+.savetext .sharetext{
+  display: inline-block;
+}
+
+.largescreen {
+  position: relative;
+  top: 2px;
+  height: 15px;
+  width: 15px;
+  display: inline-block;
+  margin-right: 12px
+}
+
+.smallscreensave {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  height: 20px;
+  width: 20px;
+  display: none;
+  cursor: pointer
+}
+
+.smallscreenshare {
+  position: absolute;
+  top: 20px;
+  right: 60px;
+  height: 20px;
+  width: 20px;
+  display: none;
+  cursor: pointer
+}
+
+@media screen and (max-width: 743px) {
+  .container {
+    min-height: 368px
+  }
+
+  .viewphotos {
+    left: auto;
+    right: 20px
+  }
+
+  .smallscreensave, .smallscreenshare {
+    display: block
+  }
+
+  .save, .share {
+    display: none
+  }
 }
