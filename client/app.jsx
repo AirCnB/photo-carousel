@@ -27,17 +27,16 @@ class App extends React.Component {
     }))
   }
 
-  renderCarousel() {
+  toggleCarousel() {
     this.setState({
       carousel: !this.state.carousel
     })
   }
 
   render() {
-    console.log(this.state.pictures)
     return (
       <div>
-      <div className="container" style={{backgroundImage: `url(${this.state.pictures.photos[0].url})`}}>
+      <div className="container" onClick={this.toggleCarousel.bind(this)} style={{backgroundImage: `url(${this.state.pictures.photos[0].url})`}}>
         <div className="content">
           <div>
             <br />
@@ -46,7 +45,7 @@ class App extends React.Component {
           </div>
         </div>
         <div>
-          <button className="viewphotos" onClick={this.renderCarousel.bind(this)}>View Photos</button>
+          <button className="viewphotos" onClick={this.toggleCarousel.bind(this)}>View Photos</button>
           <button className="share">
             <div>
               <svg className="largescreen" viewBox="0 0 24 24" role="presentation" aria-hidden="true" focusable="false">
@@ -72,7 +71,7 @@ class App extends React.Component {
         </div>
       </div>
       {this.state.carousel &&
-        <Carousel pictures={this.state.pictures}/>
+        <Carousel pictures={this.state.pictures} toggleCarousel={this.toggleCarousel.bind(this)}/>
       }
       </div>
     )
