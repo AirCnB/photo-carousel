@@ -17,20 +17,32 @@ html, body, .app {
   background-color: rgba(0,0,0, 0.8);
 }
 
-.popup_inner {
-  font-family: Airglyphs, sans-serif;
-  color: white;
-  position: absolute;
-  right: 10px;
-  font-size: 2em
-}
-
 .exit {
   stroke: #FFF;
   stroke-width:2;
   position: absolute;
   right: 20px;
-  top: 20px
+  top: 20px;
+  cursor: pointer
+}
+
+.backbutton {
+  height: 4.8em;
+  width: 4.8em;
+  fill: rgb(255, 255, 255);
+  position: absolute;
+  top: 40%;
+  cursor: pointer
+}
+
+.forwardbutton {
+  height: 4.8em;
+  width: 4.8em;
+  fill: rgb(255, 255, 255);
+  position: absolute;
+  top: 40%;
+  right: 0px;
+  cursor: pointer
 }
 
 /* .popup_inner {
