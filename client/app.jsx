@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import styles from './styles/app.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class App extends React.Component {
   render() {
     console.log(this.state.pictures)
     return (
-      <div>
+      <div className="app">
       <div className="container" style={{backgroundImage: `url(${this.state.pictures.photos[0].url})`}}>
         <div className="content">
           <div>
