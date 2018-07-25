@@ -19,6 +19,26 @@ class PhotoView extends React.Component {
     })
   }
 
+  selectNext() {
+    for (let i = 0; i < this.props.pictures.photos.length; i++) {
+      if (this.props.pictures.photos[i].url === this.state.mainPhoto) {
+        this.setState({
+          mainPhoto: this.props.pictures.photos[(i + 1) % this.props.pictures.photos.length].url
+        })
+      }
+    }
+  }
+
+  selectPrevious() {
+    for (let i = 0; i < this.props.pictures.photos.length; i++) {
+      if (this.props.pictures.photos[i].url === this.state.mainPhoto) {
+        this.setState({
+          mainPhoto: this.props.pictures.photos[(i - 1) % this.props.pictures.photos.length].url
+        })
+      }
+    }
+  }
+
   render() {
     return (
       <div className='popup'>
@@ -30,14 +50,14 @@ class PhotoView extends React.Component {
             </svg>
           </div>
           <div className="center">
-            <img className="pic" src={this.state.mainPhoto}/>
+            <img onClick={this.selectNext.bind(this)} className="pic" src={this.state.mainPhoto}/>
             <div className="back">
-              <svg className="backbutton" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
+              <svg onClick={this.selectPrevious.bind(this)} className="backbutton" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
                 <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fill-rule="evenodd"></path>
               </svg>
             </div>
             <div className="forward">
-              <svg className="forwardbutton" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
+              <svg onClick={this.selectNext.bind(this)} className="forwardbutton" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
                 <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
               </svg>
             </div>
