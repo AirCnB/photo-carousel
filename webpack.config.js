@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  entry: './client/app.jsx',
+  entry: './src/components/app.jsx',
   output: {
     filename: 'compiled.js',
     path: path.resolve(__dirname, 'public'),
