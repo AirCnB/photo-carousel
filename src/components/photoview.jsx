@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles/carousel.css';
+import Slider from './slider.jsx';
+import '../styles/photoview.css';
 //pictures, toggleCarousel
-class Carousel extends React.Component {
+class PhotoView extends React.Component {
 
   constructor(props) {
     super(props)
@@ -31,13 +32,16 @@ class Carousel extends React.Component {
               </svg>
             </div>
           </div>
+          <div className="slider">
+            <Slider pictures={this.props.pictures} />
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default Carousel
+export default PhotoView
 
 // <img src={this.props.pictures.photos[0].url} />
 
