@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      carousel: false,
+      showPhotoView: false,
       pictures: {
         id: 1,
         photos: [
@@ -29,7 +29,7 @@ class App extends React.Component {
 
   toggleCarousel() {
     this.setState({
-      carousel: !this.state.carousel
+      carousel: !this.state.showPhotoView
     })
   }
 
@@ -70,7 +70,7 @@ class App extends React.Component {
           </svg>
         </div>
       </div>
-      {this.state.carousel &&
+      {this.state.showPhotoView &&
         <Carousel pictures={this.state.pictures} toggleCarousel={this.toggleCarousel.bind(this)}/>
       }
       </div>
