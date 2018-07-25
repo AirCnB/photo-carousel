@@ -7,6 +7,16 @@ class PhotoView extends React.Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      mainPhoto: this.props.pictures.photos[0].url
+    }
+  }
+
+  selectPhoto(event) {
+    const src = event.getAttribute('src');
+    this.setState({
+      mainPhoto: src
+    })
   }
 
   render() {
@@ -20,7 +30,7 @@ class PhotoView extends React.Component {
             </svg>
           </div>
           <div className="center">
-            <img className="pic" src={this.props.pictures.photos[0].url}/>
+            <img className="pic" src={this.state.mainPhoto}/>
             <div className="back">
               <svg className="backbutton" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false">
                 <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fill-rule="evenodd"></path>
@@ -33,7 +43,7 @@ class PhotoView extends React.Component {
             </div>
           </div>
           <div className="slider">
-            <Slider pictures={this.props.pictures} />
+            <Slider pictures={this.props.pictures} selectPhoto={this.selectPhoto.bind(this)}/>
           </div>
         </div>
       </div>

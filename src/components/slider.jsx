@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import '../styles/slider.css';
-//
+//pictures, selectPhoto
 class Slider extends React.Component {
 
   constructor(props) {
@@ -10,7 +10,9 @@ class Slider extends React.Component {
 
   render() {
     return (
-      <h3>Hi</h3>
+      <div>
+        {this.props.pictures.photos.map(photo => <img className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>)}
+      </div>
     )
   }
 }
