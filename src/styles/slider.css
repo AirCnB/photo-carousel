@@ -1,8 +1,17 @@
+.slideshow {
+  margin: auto;
+  width: 880px;
+  height: 100px;
+  border-style: solid;
+  border-color: red;
+  overflow: hidden;
+}
+
 .thumbnail {
   width: 100px;
   height: 67px;
   display: inline-block;
-  margin-right: 10px;
+  margin: 10px 10px 10px 0;
   filter: brightness(40%);
   cursor: pointer
 }

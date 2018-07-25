@@ -10,7 +10,7 @@ class Slider extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="slideshow">
         {this.props.pictures.photos.map(photo => <img className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>)}
       </div>
     )
