@@ -20,20 +20,24 @@ class PhotoView extends React.Component {
   }
 
   selectNext() {
-    for (let i = 0; i < this.props.pictures.photos.length; i++) {
-      if (this.props.pictures.photos[i].url === this.state.mainPhoto) {
+    const photos = this.props.pictures.photos;
+    const numPhotos = this.props.pictures.photos.length;
+    for (let i = 0; i < numPhotos; i++) {
+      if (photos[i].url === this.state.mainPhoto) {
         this.setState({
-          mainPhoto: this.props.pictures.photos[(i + 1) % this.props.pictures.photos.length].url
+          mainPhoto: photos[(i + 1) % numPhotos].url
         })
       }
     }
   }
 
   selectPrevious() {
-    for (let i = 0; i < this.props.pictures.photos.length; i++) {
-      if (this.props.pictures.photos[i].url === this.state.mainPhoto) {
+    const photos = this.props.pictures.photos;
+    const numPhotos = this.props.pictures.photos.length;
+    for (let i = 0; i < numPhotos; i++) {
+      if (photos[i].url === this.state.mainPhoto) {
         this.setState({
-          mainPhoto: this.props.pictures.photos[(i - 1) % this.props.pictures.photos.length].url
+          mainPhoto: photos[(((i - 1) % numPhotos) + numPhotos) % numPhotos].url
         })
       }
     }
