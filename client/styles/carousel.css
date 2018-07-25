@@ -31,19 +31,24 @@ html, body, .app {
   top: 10%;
   height: 70%;
   width: 99%;
-  border-style: solid;
-  border-color: white;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .center {
-    height: 72vw
+    height: 58vw
   }
 }
 
-.back {
-  height:100%;
-  width: 200px
+.back, .forward {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 4.8em;
+  cursor: pointer
+}
+
+.forward {
+  right: 0px;
 }
 
 .backbutton {
@@ -60,19 +65,42 @@ html, body, .app {
   width: 4.8em;
   fill: rgb(255, 255, 255);
   position: absolute;
-  top: 40%;
+  top: 43%;
   right: 0px;
   cursor: pointer
 }
 
+@media screen and (max-width: 1128px) {
+  .backbutton, .forwardbutton {
+    height: 2.4em;
+    width: 2.4em;
+    top: 45.5%
+  }
+
+  .back, .forward {
+    width: 2.4em
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .backbutton, .forwardbutton {
+    top: 43%
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .backbutton, .forwardbutton {
+    top: 40%
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .backbutton, .forwardbutton {
+    top: 35%
+  }
+}
+
 .pic {
-  /* top: 10%;
-  left: 20%; */
-  /* position: absolute;
-  top: 0px; */
-  /* right: 10%;
-  left: 10%; */
-  /* right: 1px; */
   height: 100%;
   width: auto;
   display: block;
@@ -80,13 +108,3 @@ html, body, .app {
   margin-right: auto;
   cursor: pointer;
 }
-
-/* .popup_inner {
-  position: absolute;
-  left: 25%;
-  right: 25%;
-  top: 25%;
-  bottom: 25%;
-  margin: auto;
-  background: white;
-} */
