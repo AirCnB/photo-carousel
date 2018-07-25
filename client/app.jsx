@@ -29,7 +29,7 @@ class App extends React.Component {
 
   toggleCarousel() {
     this.setState({
-      carousel: !this.state.showPhotoView
+      showPhotoView: !this.state.showPhotoView
     })
   }
 
