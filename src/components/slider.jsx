@@ -27,13 +27,49 @@ class Slider extends React.Component {
           })
           break;
         }
-        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i > 4) {
+        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i > 4 && i < this.props.pictures.photos.length - 4) {
           let xPixels = 'translate(-' + (55 + (110 * (i - 4))) + 'px)';
           this.setState({
             translate: xPixels
           })
           break;
         }
+        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 4) {
+          console.log('here')
+          let xPixels = 'translate(-' + (110 * (i - 4)) + 'px)';
+          this.setState({
+            translate: xPixels
+          })
+          break;
+        }
+        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 3) {
+          let xPixels = 'translate(-' + (110 * (i - 5)) + 'px)';
+          this.setState({
+            translate: xPixels
+          })
+          break;
+        }
+        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 2) {
+          let xPixels = 'translate(-' + (110 * (i - 6)) + 'px)';
+          this.setState({
+            translate: xPixels
+          })
+          break;
+        }
+        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 1) {
+          let xPixels = 'translate(-' + (110 * (i - 7)) + 'px)';
+          this.setState({
+            translate: xPixels
+          })
+          break;
+        }
+        // if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 3) {
+        //   let xPixels = 'translate(-' + (110 * (i - (i + 1))) + 'px)';
+        //   this.setState({
+        //     translate: xPixels
+        //   })
+        //   break;
+        // }
       }
     }
   }
@@ -43,9 +79,13 @@ class Slider extends React.Component {
       <div className="slideshow">
         {this.props.pictures.photos.map((photo, key) =>
           {return photo.url === this.props.mainPhoto ? (
-            <img style={{filter: 'brightness(100%)', transform: this.state.translate}} key={key} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+            <span>
+              <img style={{filter: 'brightness(100%)', transform: this.state.translate}} key={key} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+            </span>
           ) : (
-            <img style={{transform: this.state.translate}} className="thumbnail" src={photo.url} key={key} onClick={(event) => this.props.selectPhoto(event.target)}/>
+            <span>
+              <img style={{transform: this.state.translate}} className="thumbnail" src={photo.url} key={key} onClick={(event) => this.props.selectPhoto(event.target)}/>
+            </span>
           )}
         )}
       </div>
