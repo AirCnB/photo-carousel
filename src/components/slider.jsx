@@ -6,16 +6,46 @@ class Slider extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      translate: 'translate(0px)'
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.mainPhoto !== prevProps.mainPhoto) {
+      for (let i = 0; i < this.props.pictures.photos.length; i++) {
+        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i < 4) {
+          this.setState({
+            translate: 'translate(0px)'
+          })
+          break;
+        }
+        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === 4) {
+          let xPixels = 'translate(-' + 55 + 'px)';
+          this.setState({
+            translate: xPixels
+          })
+          break;
+        }
+        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i > 4) {
+          let xPixels = 'translate(-' + (55 + (110 * (i - 4))) + 'px)';
+          this.setState({
+            translate: xPixels
+          })
+          break;
+        }
+      }
+    }
   }
 
   render() {
     return (
       <div className="slideshow">
-        {this.props.pictures.photos.map(photo =>
+        {this.props.pictures.photos.map((photo, key) =>
           {return photo.url === this.props.mainPhoto ? (
-            <img style={{filter: 'brightness(100%)'}} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+            <img style={{filter: 'brightness(100%)', transform: this.state.translate}} key={key} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
           ) : (
-            <img className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+            <img style={{transform: this.state.translate}} className="thumbnail" src={photo.url} key={key} onClick={(event) => this.props.selectPhoto(event.target)}/>
           )}
         )}
       </div>

@@ -11,11 +11,15 @@
   width: 100px;
   height: 67px;
   display: inline-block;
-  margin: 10px 10px 10px 0;
+  margin: 10px 5px 10px 5px;
   filter: brightness(40%);
   cursor: pointer
 }
 
 .thumbnail:hover {
   filter: brightness(100%);
+}
+
+.thumbnail:active {
+  transform: translate(20px);
 }
