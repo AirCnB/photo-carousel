@@ -13,63 +13,42 @@ class Slider extends React.Component {
 
   componentDidUpdate(prevProps) {
     if (this.props.mainPhoto !== prevProps.mainPhoto) {
-      for (let i = 0; i < this.props.pictures.photos.length; i++) {
-        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i < 4) {
-          this.setState({
-            translate: 'translate(0px)'
-          })
-          break;
+      let xPixels;
+      if (this.props.pictures.photos.length > 8) {
+        for (let i = 0; i < this.props.pictures.photos.length; i++) {
+          if (this.props.mainPhoto === this.props.pictures.photos[i].url && i < 4) {
+            xPixels = 'translate(0px)'
+            break;
+          }
+          if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === 4) {
+            xPixels = 'translate(-' + 55 + 'px)';
+            break;
+          }
+          if (this.props.mainPhoto === this.props.pictures.photos[i].url && i > 4 && i < this.props.pictures.photos.length - 4) {
+            xPixels = 'translate(-' + (55 + (110 * (i - 4))) + 'px)';
+            break;
+          }
+          if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 4) {
+            xPixels = 'translate(-' + (110 * (i - 4)) + 'px)';
+            break;
+          }
+          if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 3) {
+            xPixels = 'translate(-' + (110 * (i - 5)) + 'px)';
+            break;
+          }
+          if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 2) {
+            xPixels = 'translate(-' + (110 * (i - 6)) + 'px)';
+            break;
+          }
+          if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 1) {
+            xPixels = 'translate(-' + (110 * (i - 7)) + 'px)';
+            break;
+          }
         }
-        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === 4) {
-          let xPixels = 'translate(-' + 55 + 'px)';
-          this.setState({
-            translate: xPixels
-          })
-          break;
-        }
-        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i > 4 && i < this.props.pictures.photos.length - 4) {
-          let xPixels = 'translate(-' + (55 + (110 * (i - 4))) + 'px)';
-          this.setState({
-            translate: xPixels
-          })
-          break;
-        }
-        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 4) {
-          let xPixels = 'translate(-' + (110 * (i - 4)) + 'px)';
-          this.setState({
-            translate: xPixels
-          })
-          break;
-        }
-        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 3) {
-          let xPixels = 'translate(-' + (110 * (i - 5)) + 'px)';
-          this.setState({
-            translate: xPixels
-          })
-          break;
-        }
-        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 2) {
-          let xPixels = 'translate(-' + (110 * (i - 6)) + 'px)';
-          this.setState({
-            translate: xPixels
-          })
-          break;
-        }
-        if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 1) {
-          let xPixels = 'translate(-' + (110 * (i - 7)) + 'px)';
-          this.setState({
-            translate: xPixels
-          })
-          break;
-        }
-        // if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 3) {
-        //   let xPixels = 'translate(-' + (110 * (i - (i + 1))) + 'px)';
-        //   this.setState({
-        //     translate: xPixels
-        //   })
-        //   break;
-        // }
       }
+      this.setState({
+        translate: xPixels
+      })
     }
   }
 
