@@ -2,15 +2,15 @@
   margin: auto;
   width: 880px;
   height: 100px;
-  border-style: solid;
-  border-color: red;
+  /* border-style: solid;
+  border-color: red; */
   overflow: hidden;
+  display: flex;
 }
 
 .thumbnail {
   width: 100px;
   height: 67px;
-  display: inline-block;
   margin: 10px 5px 10px 5px;
   filter: brightness(40%);
   cursor: pointer
@@ -18,8 +18,4 @@
 
 .thumbnail:hover {
   filter: brightness(100%);
-}
-
-.thumbnail:active {
-  transform: translate(20px);
 }
