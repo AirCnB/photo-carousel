@@ -13,6 +13,9 @@ class PhotoView extends React.Component {
   }
 
   componentDidMount() {
+    for (let i = 0; i < this.props.pictures.photos.length; i++) {
+      this.props.pictures.photos[i].index = i;
+    }
     document.addEventListener("keydown", this.handleKeyDown.bind(this));
   }
 
