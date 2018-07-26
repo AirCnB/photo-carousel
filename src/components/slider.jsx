@@ -35,7 +35,6 @@ class Slider extends React.Component {
           break;
         }
         if (this.props.mainPhoto === this.props.pictures.photos[i].url && i === this.props.pictures.photos.length - 4) {
-          console.log('here')
           let xPixels = 'translate(-' + (110 * (i - 4)) + 'px)';
           this.setState({
             translate: xPixels
@@ -80,11 +79,11 @@ class Slider extends React.Component {
         {this.props.pictures.photos.map((photo, key) =>
           {return photo.url === this.props.mainPhoto ? (
             <span>
-              <img style={{filter: 'brightness(100%)', transform: this.state.translate}} key={key} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+              <img style={{filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out'}} key={key} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
             </span>
           ) : (
             <span>
-              <img style={{transform: this.state.translate}} className="thumbnail" src={photo.url} key={key} onClick={(event) => this.props.selectPhoto(event.target)}/>
+              <img style={{transform: this.state.translate, transition: 'transform .3s ease-out'}} className="thumbnail" src={photo.url} key={key} onClick={(event) => this.props.selectPhoto(event.target)}/>
             </span>
           )}
         )}
