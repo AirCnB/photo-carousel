@@ -1,11 +1,28 @@
 .slideshow {
+  position: relative;
   margin: auto;
   width: 880px;
   height: 100px;
   /* border-style: solid;
   border-color: red; */
+}
+
+.slideshow-inner {
   overflow: hidden;
   display: flex;
+}
+
+.hidephoto {
+  position: absolute;
+  right: 5px;
+}
+
+.text {
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+  font-size: 14px;
+  font-weight: lighter;
+  color: white;
+  margin-bottom: 12px
 }
 
 .thumbnail {
