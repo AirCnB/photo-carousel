@@ -82,7 +82,7 @@ class PhotoView extends React.Component {
             </div>
           </div>
           <div className="slider">
-            <Slider pictures={this.props.pictures} selectPhoto={this.selectPhoto.bind(this)}/>
+            <Slider pictures={this.props.pictures} mainPhoto={this.state.mainPhoto} selectPhoto={this.selectPhoto.bind(this)}/>
           </div>
         </div>
       </div>
@@ -91,9 +91,3 @@ class PhotoView extends React.Component {
 }
 
 export default PhotoView
-
-// <img src={this.props.pictures.photos[0].url} />
-
-// <div className="picbox">
-//   <img className="pic" src={this.props.pictures.photos[0].url}/>
-// </div>
