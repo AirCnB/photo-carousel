@@ -1,20 +1,31 @@
+.outer {
+  position: relative;
+  overflow: hidden
+}
+
 .slideshow {
   position: relative;
   margin: auto;
   width: 880px;
   height: 100px;
-  /* border-style: solid;
-  border-color: red; */
+  overflow: hidden;
 }
 
 .slideshow-inner {
+  position: relative;
   overflow: hidden;
   display: flex;
 }
 
 .hidephoto {
   position: absolute;
-  right: 5px;
+  right: 15px;
+}
+
+
+
+.descriptions {
+  margin-left: 5px
 }
 
 .text {
@@ -23,6 +34,17 @@
   font-weight: lighter;
   color: white;
   margin-bottom: 12px
+}
+
+.triangle {
+  font-size: 9px;
+  position: absolute;
+  top: 3.5px;
+  right: 5px;
+}
+
+.toggle {
+  cursor: pointer;
 }
 
 .thumbnail {
@@ -35,4 +57,12 @@
 
 .thumbnail:hover {
   filter: brightness(100%);
+}
+
+.hovertoggle {
+  position: absolute;
+  bottom: 0px;
+  border-style: solid;
+  border-color: red
+
 }
