@@ -2,14 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Slider from './slider.jsx';
 import '../styles/photoview.css';
-//pictures, toggleCarousel
+//content, toggleCarousel
 class PhotoView extends React.Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      pictures: {},
-      mainPhoto: this.props.pictures.photos[0]
+      mainPhoto: this.props.content.photos[0]
     }
   }
 
@@ -19,9 +18,9 @@ class PhotoView extends React.Component {
 
   selectPhoto(event) {
     let selected;
-    for (let i = 0; i < this.props.pictures.photos.length; i++) {
-      if (event.getAttribute('src') === this.props.pictures.photos[i].url) {
-        selected = this.props.pictures.photos[i]
+    for (let i = 0; i < this.props.content.photos.length; i++) {
+      if (event.getAttribute('src') === this.props.content.photos[i].url) {
+        selected = this.props.content.photos[i]
       }
     }
     console.log(selected)
@@ -31,8 +30,8 @@ class PhotoView extends React.Component {
   }
 
   selectNext() {
-    const photos = this.props.pictures.photos;
-    const numPhotos = this.props.pictures.photos.length;
+    const photos = this.props.content.photos;
+    const numPhotos = this.props.content.photos.length;
     for (let i = 0; i < numPhotos; i++) {
       if (photos[i].url === this.state.mainPhoto.url) {
         this.setState({
@@ -44,8 +43,8 @@ class PhotoView extends React.Component {
   }
 
   selectPrevious() {
-    const photos = this.props.pictures.photos;
-    const numPhotos = this.props.pictures.photos.length;
+    const photos = this.props.content.photos;
+    const numPhotos = this.props.content.photos.length;
     for (let i = 0; i < numPhotos; i++) {
       if (photos[i].url === this.state.mainPhoto.url) {
         this.setState({
@@ -89,7 +88,7 @@ class PhotoView extends React.Component {
             </div>
           </div>
           <div className="slider">
-            <Slider pictures={this.props.pictures} mainPhoto={this.state.mainPhoto} selectPhoto={this.selectPhoto.bind(this)}/>
+            <Slider content={this.props.content} mainPhoto={this.state.mainPhoto} selectPhoto={this.selectPhoto.bind(this)}/>
           </div>
         </div>
       </div>
