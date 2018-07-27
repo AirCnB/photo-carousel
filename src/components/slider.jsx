@@ -23,35 +23,28 @@ class Slider extends React.Component {
     const photos = this.props.content.photos;
     if (mainPhoto !== prevProps.mainPhoto.url) {
       let xPixels;
-      if (this.props.content.photos.length > 8) {
+      if (photos.length > 8) {
         for (let i = 0; i < photos.length; i += 1) {
           if (mainPhoto === photos[i].url && i < 4) {
             xPixels = 'translate(0px)'
-            break;
           }
           if (mainPhoto === photos[i].url && i === 4) {
             xPixels = 'translate(-' + 55 + 'px)';
-            break;
           }
           if (mainPhoto === photos[i].url && i > 4 && i < photos.length - 4) {
             xPixels = 'translate(-' + (55 + (110 * (i - 4))) + 'px)';
-            break;
           }
           if (mainPhoto === photos[i].url && i === photos.length - 4) {
             xPixels = 'translate(-' + (110 * (i - 4)) + 'px)';
-            break;
           }
           if (mainPhoto === photos[i].url && i === photos.length - 3) {
             xPixels = 'translate(-' + (110 * (i - 5)) + 'px)';
-            break;
           }
           if (mainPhoto === photos[i].url && i === photos.length - 2) {
             xPixels = 'translate(-' + (110 * (i - 6)) + 'px)';
-            break;
           }
           if (mainPhoto === photos[i].url && i === photos.length - 1) {
             xPixels = 'translate(-' + (110 * (i - 7)) + 'px)';
-            break;
           }
         }
       }
