@@ -12,8 +12,8 @@
 }
 
 .thumbnail {
-  min-width: 100px !important;
-  width: 100px !important;
+  min-width: 100px;
+  max-width: 100px;
   height: 67px;
   margin: 10px 5px 10px 5px;
   filter: brightness(40%);
