@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/slider.css';
-// content, selectPhoto, mainPhoto
+
 class Slider extends React.Component {
   constructor(props) {
     super(props);
@@ -19,35 +19,37 @@ class Slider extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.mainPhoto.url !== prevProps.mainPhoto.url) {
+    const mainPhoto = this.props.mainPhoto.url;
+    const photos = this.props.content.photos;
+    if (mainPhoto !== prevProps.mainPhoto.url) {
       let xPixels;
       if (this.props.content.photos.length > 8) {
-        for (let i = 0; i < this.props.content.photos.length; i++) {
-          if (this.props.mainPhoto.url === this.props.content.photos[i].url && i < 4) {
+        for (let i = 0; i < photos.length; i += 1) {
+          if (mainPhoto === photos[i].url && i < 4) {
             xPixels = 'translate(0px)'
             break;
           }
-          if (this.props.mainPhoto.url === this.props.content.photos[i].url && i === 4) {
+          if (mainPhoto === photos[i].url && i === 4) {
             xPixels = 'translate(-' + 55 + 'px)';
             break;
           }
-          if (this.props.mainPhoto.url === this.props.content.photos[i].url && i > 4 && i < this.props.content.photos.length - 4) {
+          if (mainPhoto === photos[i].url && i > 4 && i < photos.length - 4) {
             xPixels = 'translate(-' + (55 + (110 * (i - 4))) + 'px)';
             break;
           }
-          if (this.props.mainPhoto.url === this.props.content.photos[i].url && i === this.props.content.photos.length - 4) {
+          if (mainPhoto === photos[i].url && i === photos.length - 4) {
             xPixels = 'translate(-' + (110 * (i - 4)) + 'px)';
             break;
           }
-          if (this.props.mainPhoto.url === this.props.content.photos[i].url && i === this.props.content.photos.length - 3) {
+          if (mainPhoto === photos[i].url && i === photos.length - 3) {
             xPixels = 'translate(-' + (110 * (i - 5)) + 'px)';
             break;
           }
-          if (this.props.mainPhoto.url === this.props.content.photos[i].url && i === this.props.content.photos.length - 2) {
+          if (mainPhoto === photos[i].url && i === photos.length - 2) {
             xPixels = 'translate(-' + (110 * (i - 6)) + 'px)';
             break;
           }
-          if (this.props.mainPhoto.url === this.props.content.photos[i].url && i === this.props.content.photos.length - 1) {
+          if (mainPhoto === photos[i].url && i === photos.length - 1) {
             xPixels = 'translate(-' + (110 * (i - 7)) + 'px)';
             break;
           }
@@ -66,23 +68,25 @@ class Slider extends React.Component {
   }
 
   render() {
+    const mainPhoto = this.props.mainPhoto;
+    const photos = this.props.content.photos;
     if (this.state.showSlider) {
       return (
         <div className="outer">
-          <div className="slideshow" style={{transform: 'translate(0px, 0px)', transition: 'transform .2s ease-out'}} >
+          <div className="slideshow" style={{ transform: 'translate(0px, 0px)', transition: 'transform .2s ease-out' }} >
             <div className="text">
-              <span className="descriptions">{this.props.content.photos.indexOf(this.props.mainPhoto) + 1}/{this.props.content.photos.length}: {this.props.mainPhoto.desc}</span>
-              <span className="toggle" onClick={this.toggleSliderView.bind(this)}>
+              <span className="descriptions">{ photos.indexOf(mainPhoto) + 1}/{ photos.length }: { mainPhoto.desc }</span>
+              <span className="toggle" onClick={ this.toggleSliderView.bind(this) }>
                 <span className="hidephoto" >Hide photo list </span>
                 <span className="triangle">&#x25BC;</span>
               </span>
             </div>
             <div className="slideshow-inner">
-              {this.props.content.photos.map(photo =>
-                {return photo.url === this.props.mainPhoto.url ? (
-                    <img style={{filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out'}} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+              { photos.map(photo =>
+                { return photo.url === mainPhoto.url ? (
+                    <img style={{ filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target) }/>
                 ) : (
-                    <img style={{transform: this.state.translate, transition: 'transform .3s ease-out'}} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+                    <img style={{ transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target) }/>
                 )}
               )}
             </div>
@@ -94,20 +98,20 @@ class Slider extends React.Component {
     if (!this.state.showSlider) {
       return (
           <div className="outer">
-            <div className="slideshow" style={{transform: 'translate(0px, 67px)', transition: 'transform .2s ease-out'}} >
+            <div className="slideshow" style={{ transform: 'translate(0px, 67px)', transition: 'transform .2s ease-out' }} >
               <div className="text">
-                <span className="descriptions">{this.props.content.photos.indexOf(this.props.mainPhoto) + 1}/{this.props.content.photos.length}: {this.props.mainPhoto.desc}</span>
-                <span className="toggle" onClick={this.toggleSliderView.bind(this)}>
+                <span className="descriptions">{ photos.indexOf(mainPhoto) + 1}/{ photos.length }: { mainPhoto.desc }</span>
+                <span className="toggle" onClick={ this.toggleSliderView.bind(this) }>
                   <span className="hidephoto" >Show photo list </span>
                   <span className="triangle">&#x25B2;</span>
                 </span>
               </div>
-              <div className="slideshow-inner" onMouseEnter={this.toggleSliderView.bind(this)}>
-                {this.props.content.photos.map(photo =>
-                  {return photo.url === this.props.mainPhoto.url ? (
-                      <img style={{filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out'}} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+              <div className="slideshow-inner" onMouseEnter={ this.toggleSliderView.bind(this) }>
+                { this.props.content.photos.map(photo =>
+                  { return photo.url === mainPhoto.url ? (
+                      <img style={{ filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target) }/>
                   ) : (
-                      <img style={{transform: this.state.translate, transition: 'transform .3s ease-out'}} className="thumbnail" src={photo.url} onClick={(event) => this.props.selectPhoto(event.target)}/>
+                      <img style={{ transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target) }/>
                   )}
                 )}
               </div>
