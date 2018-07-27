@@ -36,7 +36,7 @@ const reDirect = (num, callback) => {
 const save = (data) => {
   Page.insertMany(data, (err) => {
     if (err) {
-      console.log(err);
+      console.log('Duplicate data not inserted.');
     }
   });
 };

@@ -71,7 +71,7 @@ class App extends React.Component {
           </div>
         </div>
         { this.state.showPhotoView &&
-          <PhotoView content={ this.state.content } toggleCarousel={ this.toggleCarousel.bind(this) }/>
+          <PhotoView content={ this.state.content } toggleCarousel={ this.toggleCarousel.bind(this) } />
         }
       </div>
     )
