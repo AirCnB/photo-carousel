@@ -22,7 +22,6 @@ class PhotoView extends React.Component {
         selected = this.props.content.photos[i];
       }
     }
-    console.log(selected)
     this.setState({
       mainPhoto: selected
     })

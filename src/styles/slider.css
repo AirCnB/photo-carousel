@@ -11,7 +11,17 @@
   overflow: hidden;
 }
 
+.thumbnail {
+  min-width: 100px !important;
+  width: 100px !important;
+  height: 67px;
+  margin: 10px 5px 10px 5px;
+  filter: brightness(40%);
+  cursor: pointer
+}
+
 .slideshow-inner {
+  width: 880px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -21,8 +31,6 @@
   position: absolute;
   right: 15px;
 }
-
-
 
 .descriptions {
   margin-left: 5px
@@ -50,14 +58,6 @@
 
 .toggle {
   cursor: pointer;
-}
-
-.thumbnail {
-  width: 100px;
-  height: 67px;
-  margin: 10px 5px 10px 5px;
-  filter: brightness(40%);
-  cursor: pointer
 }
 
 .thumbnail:hover {
