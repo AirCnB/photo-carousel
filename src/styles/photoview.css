@@ -30,7 +30,7 @@ html, body, .app {
   position: absolute;
   top: 10%;
   height: 70%;
-  width: 99%;
+  width: 100%;
 }
 
 @media screen and (max-width: 1024px) {

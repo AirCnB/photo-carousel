@@ -9,7 +9,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       showPhotoView: false,
-      pictures: {
+      content: {
         id: 1,
         photos: [
           {url: ""},
@@ -23,7 +23,7 @@ class App extends React.Component {
     id = parseInt(id.substring(0, id.length))
     axios.get(`/photos/${id}`)
     .then(res => this.setState({
-      pictures: res.data[0]
+      content: res.data[0]
     }))
   }
 
@@ -36,7 +36,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-      <div className="container" onClick={this.toggleCarousel.bind(this)} style={{backgroundImage: `url(${this.state.pictures.photos[0].url})`}}>
+      <div className="container" onClick={this.toggleCarousel.bind(this)} style={{backgroundImage: `url(${this.state.content.photos[0].url})`}}>
         <div className="content">
           <div>
             <br />
@@ -71,7 +71,7 @@ class App extends React.Component {
         </div>
       </div>
       {this.state.showPhotoView &&
-        <PhotoView pictures={this.state.pictures} toggleCarousel={this.toggleCarousel.bind(this)}/>
+        <PhotoView content={this.state.content} toggleCarousel={this.toggleCarousel.bind(this)}/>
       }
       </div>
     )
