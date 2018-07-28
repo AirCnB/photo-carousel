@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from './slider.jsx';
+//import MainPhoto from './mainphoto.jsx';
 import '../styles/photoview.css';
 
 class PhotoView extends React.Component {
@@ -73,15 +74,15 @@ class PhotoView extends React.Component {
             </svg>
           </div>
           <div className="center">
-            <img onClick={ this.selectNext.bind(this) } className="pic" src={ this.state.mainPhoto.url }/>
+            <img onClick={ this.selectNext.bind(this) } className="pic" src={ this.state.mainPhoto.url } />
             <div className="back" onClick={this.selectPrevious.bind(this)}>
               <svg className="backbutton" viewBox="0 0 18 18" >
-                <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fill-rule="evenodd"></path>
+                <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd"></path>
               </svg>
             </div>
             <div className="forward" onClick={ this.selectNext.bind(this) }>
               <svg className="forwardbutton" viewBox="0 0 18 18" >
-                <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fillRule="evenodd"></path>
               </svg>
             </div>
           </div>
@@ -95,3 +96,5 @@ class PhotoView extends React.Component {
 }
 
 export default PhotoView;
+// <MainPhoto photos={ this.props.content.photos } selectNext={ this.selectNext.bind(this) } mainPhoto={ this.state.mainPhoto } />
+//
