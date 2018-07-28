@@ -1,3 +1,5 @@
+
+
 @keyframes modalFade {
   from {transform: translateY(0);opacity: 0;}
   to {transform: translateY(0);opacity: 1;}
@@ -51,6 +53,7 @@
 }
 
 .subtitle {
+  padding-top: 5px;
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
   font-size: 14px;
   color: #484848;
@@ -97,3 +100,20 @@
 .sharewebsite:hover {
   text-decoration: underline;
 }
+
+@media (max-width: 743px) {
+  .sharepopupinner {
+    position: static;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+/* [class*="sharepopupinner"] {
+  position: fixed;
+  width: 100%;
+}
+
+[class*="sharewebsite"] {
+  font-size: 32px;
+} */

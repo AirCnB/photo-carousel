@@ -69,11 +69,20 @@ class Slider extends React.Component {
           <div className="text">
             <span className="descriptions">{ photos.indexOf(mainPhoto) + 1}/{ photos.length }: { mainPhoto.desc }</span>
             <span className="toggle" onClick={ this.toggleSliderView.bind(this) }>
-              <span className="hidephoto" >Hide photo list </span>
-              <span className="triangle">&#x25BC;</span>
+              { this.state.showSlider ? (
+                <span>
+                  <span className="hidephoto" >Hide photo list </span>
+                  <span className="triangle">&#x25BC;</span>
+                </span>
+              ) : (
+                <span>
+                  <span className="hidephoto" >Show photo list </span>
+                  <span className="triangle">&#x25B2;</span>
+                </span>
+              )}
             </span>
           </div>
-          <div className="slideshow-inner">
+          <div className="slideshow-inner" onMouseEnter={ !this.state.showSlider ? this.toggleSliderView.bind(this) : null } >
             { photos.map((photo, key) =>
               { return photo.url === mainPhoto.url ? (
                   <img style={{ filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target)} key={key} />
