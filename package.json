@@ -12,6 +12,14 @@
     "start": "nodemon ./server/server.js",
     "eslint": "eslint ."
   },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    },
+    "collectCoverage": true
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AirCnB/photo-carousel.git"
@@ -24,12 +32,18 @@
   },
   "homepage": "https://github.com/AirCnB/photo-carousel#readme",
   "devDependencies": {
+    "babel-jest": "^23.4.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
     "jest": "^23.4.1",
+    "jest-enzyme": "^6.0.2",
+    "superagent": "^3.8.3",
+    "supertest": "^3.1.0",
     "webpack-cli": "^3.0.8",
     "webpack-dev-middleware": "^3.1.3"
   },

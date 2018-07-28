@@ -63,55 +63,28 @@ class Slider extends React.Component {
   render() {
     const mainPhoto = this.props.mainPhoto;
     const photos = this.props.content.photos;
-    if (this.state.showSlider) {
-      return (
-        <div className="outer">
-          <div className="slideshow" style={{ transform: 'translate(0px, 0px)', transition: 'transform .2s ease-out' }} >
-            <div className="text">
-              <span className="descriptions">{ photos.indexOf(mainPhoto) + 1}/{ photos.length }: { mainPhoto.desc }</span>
-              <span className="toggle" onClick={ this.toggleSliderView.bind(this) }>
-                <span className="hidephoto" >Hide photo list </span>
-                <span className="triangle">&#x25BC;</span>
-              </span>
-            </div>
-            <div className="slideshow-inner">
-              { photos.map(photo =>
-                { return photo.url === mainPhoto.url ? (
-                    <img style={{ filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target) }/>
-                ) : (
-                    <img style={{ transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target) }/>
-                )}
+    return (
+      <div className="outer">
+        <div className="slideshow" style={ this.state.showSlider ? { transform: 'translate(0px, 0px)', transition: 'transform .2s ease-out' } : { transform: 'translate(0px, 67px)', transition: 'transform .2s ease-out' }} >
+          <div className="text">
+            <span className="descriptions">{ photos.indexOf(mainPhoto) + 1}/{ photos.length }: { mainPhoto.desc }</span>
+            <span className="toggle" onClick={ this.toggleSliderView.bind(this) }>
+              <span className="hidephoto" >Hide photo list </span>
+              <span className="triangle">&#x25BC;</span>
+            </span>
+          </div>
+          <div className="slideshow-inner">
+            { photos.map((photo, key) =>
+              { return photo.url === mainPhoto.url ? (
+                  <img style={{ filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target)} key={key} />
+              ) : (
+                  <img style={{ transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target)} key={key} />
               )}
-            </div>
+            )}
           </div>
         </div>
-      )
-    }
-
-    if (!this.state.showSlider) {
-      return (
-          <div className="outer">
-            <div className="slideshow" style={{ transform: 'translate(0px, 67px)', transition: 'transform .2s ease-out' }} >
-              <div className="text">
-                <span className="descriptions">{ photos.indexOf(mainPhoto) + 1}/{ photos.length }: { mainPhoto.desc }</span>
-                <span className="toggle" onClick={ this.toggleSliderView.bind(this) }>
-                  <span className="hidephoto" >Show photo list </span>
-                  <span className="triangle">&#x25B2;</span>
-                </span>
-              </div>
-              <div className="slideshow-inner" onMouseEnter={ this.toggleSliderView.bind(this) }>
-                { this.props.content.photos.map(photo =>
-                  { return photo.url === mainPhoto.url ? (
-                      <img style={{ filter: 'brightness(100%)', transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target) }/>
-                  ) : (
-                      <img style={{ transform: this.state.translate, transition: 'transform .3s ease-out' }} className="thumbnail" src={ photo.url } onClick={ (event) => this.props.selectPhoto(event.target) }/>
-                  )}
-                )}
-              </div>
-            </div>
-          </div>
-      )
-    }
+      </div>
+    )
   }
 }
 

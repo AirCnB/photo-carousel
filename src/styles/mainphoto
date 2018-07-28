@@ -1,0 +1,32 @@
+@keyframes modalFadeIn {
+  from {opacity: .6;}
+  to {opacity: 1;}
+}
+
+.fade {
+  animation-name: modalFadeIn;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+}
+
+@keyframes modalFadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+.b {
+  animation-name: modalFadeOut;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+
+.a {
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}

@@ -1,0 +1,52 @@
+import React from 'react';
+import '../styles/mainphoto.css';
+
+class MainPhoto extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      prevClass: 'b',
+      class: 'fade',
+      prevPhoto: {url: ''},
+      mainPhoto: {url: ''}
+    }
+  }
+
+  componentDidMount() {
+    this.setState({
+      mainPhoto: this.props.photos[0]
+    })
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log(this.state.mainPhoto)
+    // console.log(prevProps.mainPhoto.url)
+    // console.log(this.props.mainPhoto.url)
+    if (prevProps.mainPhoto !== this.props.mainPhoto) {
+      this.setState({
+        //class: '',
+        prevClass: 'd',
+        prevPhoto: prevProps.mainPhoto
+      })
+      setTimeout(() => {
+        this.setState({
+          prevClass: 'b',
+          class: 'fade',
+          mainPhoto: this.props.mainPhoto,
+          prevPhoto: { url: '' }
+        })
+      })
+    }
+  }
+
+  render() {
+    return (
+      <div className="acenter">
+        <img onClick={ () => this.props.selectNext() } className={ 'a ' + this.state.prevClass } src={ this.state.prevPhoto.url } />
+        <img onClick={ () => this.props.selectNext() } className={ 'a ' + this.state.class } src={ this.state.mainPhoto.url } />
+      </div>
+    )
+  }
+}
+
+export default MainPhoto;

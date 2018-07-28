@@ -72,24 +72,21 @@ body {
   margin-right: 12px
 }
 
-.smallscreensave {
+.smallscreensave, .smallscreenshare {
   position: absolute;
   top: 20px;
-  right: 20px;
   height: 20px;
   width: 20px;
   display: none;
   cursor: pointer
 }
 
+.smallscreensave {
+  right: 20px;
+}
+
 .smallscreenshare {
-  position: absolute;
-  top: 20px;
   right: 60px;
-  height: 20px;
-  width: 20px;
-  display: none;
-  cursor: pointer
 }
 
 @media screen and (max-width: 743px) {
