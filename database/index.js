@@ -18,6 +18,7 @@ const photoSchema = mongoose.Schema({
       desc: String,
     },
   ],
+  saved: Boolean,
 });
 
 const Page = mongoose.model('Page', photoSchema);
@@ -32,6 +33,18 @@ const reDirect = (num, callback) => {
     }
   });
 };
+
+const updateSave = (num, boolean, callback) => {
+  let queryId = Number(num);
+  let val = boolean === 'true';
+  Page.update( {id: queryId }, { $set: { saved: val } }, (err, docs) => {
+    if (err) {
+      console.log(err);
+    } else {
+      callback(null, docs)
+    }
+  })
+}
 
 const save = (data) => {
   Page.insertMany(data, (err) => {
@@ -52,6 +65,7 @@ const insertData = (data) => {
     const usedPics = [];
     const model = {};
     model.id = index;
+    model.saved = false;
     model.photos = [dataArr[index]];
     usedPics.push(index);
     const rand = Math.floor(Math.random() * 10) + 3;
@@ -99,3 +113,4 @@ const getData = () => {
 
 module.exports.getData = getData;
 module.exports.reDirect = reDirect;
+module.exports.updateSave = updateSave;

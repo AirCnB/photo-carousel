@@ -107,3 +107,50 @@ body {
     display: none
   }
 }
+
+/* .savepopup {
+  visibility: hidden;
+  position: fixed;
+  width: 375px;
+  left: 24px;
+  bottom: -55px;
+  border: 1px solid #DBDBDB;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  background-color: white;
+  padding: 16px 24px;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.43;
+  color: #484848;
+}
+
+.appear {
+  visibility: visible;
+  transform: translateY(-79px);
+  transition: transform .35s ease
+}
+
+.savepopuptext {
+  margin-right: 200px
+}
+
+.savepopupchange {
+  color: #008489
+}
+
+.savepopupchange:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.savepopupexit {
+  position: absolute;
+  right: 22px;
+  top: 18px;
+  height: 16px;
+  width: 16px;
+  display: inline-block;
+  fill: currentColor;
+
+} */
