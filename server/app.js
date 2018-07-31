@@ -4,10 +4,10 @@ const db = require('../database/index.js');
 
 const app = express();
 
-app.use('/aircnb/:id', express.static('public'));
+app.use('/listings/:id', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/photos/:id', (req, res) => {
+app.get('/api/listings/:id/photos', (req, res) => {
   const id = Number(req.params.id);
   db.reDirect(id, (err, docs) => {
     if (err) {

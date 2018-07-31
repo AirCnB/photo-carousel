@@ -6,6 +6,9 @@ module.exports = {
     filename: 'compiled.js',
     path: path.resolve(__dirname, 'public'),
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     rules: [
       {

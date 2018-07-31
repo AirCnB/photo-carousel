@@ -21,6 +21,7 @@ ShallowWrapper {
         <div
           className="container"
           onClick={[Function]}
+          role="presentation"
           style={
             Object {
               "backgroundImage": "url()",
@@ -29,17 +30,11 @@ ShallowWrapper {
         >
           <div
             className="content"
-          >
-            <div>
-              <br />
-              <br />
-              <br />
-            </div>
-          </div>
+          />
           <div>
             <button
               className="viewphotos"
-              onClick={[Function]}
+              type="button"
             >
               View Photos
             </button>
@@ -51,6 +46,7 @@ ShallowWrapper {
                   "right": "131px",
                 }
               }
+              type="button"
             >
               <div>
                 <svg
@@ -72,6 +68,7 @@ ShallowWrapper {
             <button
               className="save"
               onClick={[Function]}
+              type="button"
             >
               <div>
                 <span>
@@ -143,17 +140,11 @@ ShallowWrapper {
           "children": Array [
             <div
               className="content"
-            >
-              <div>
-                <br />
-                <br />
-                <br />
-              </div>
-            </div>,
+            />,
             <div>
               <button
                 className="viewphotos"
-                onClick={[Function]}
+                type="button"
               >
                 View Photos
               </button>
@@ -165,6 +156,7 @@ ShallowWrapper {
                     "right": "131px",
                   }
                 }
+                type="button"
               >
                 <div>
                   <svg
@@ -186,6 +178,7 @@ ShallowWrapper {
               <button
                 className="save"
                 onClick={[Function]}
+                type="button"
               >
                 <div>
                   <span>
@@ -245,6 +238,7 @@ ShallowWrapper {
           ],
           "className": "container",
           "onClick": [Function],
+          "role": "presentation",
           "style": Object {
             "backgroundImage": "url()",
           },
@@ -256,57 +250,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": <div>
-                <br />
-                <br />
-                <br />
-              </div>,
               "className": "content",
             },
             "ref": null,
-            "rendered": Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <br />,
-                  <br />,
-                  <br />,
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "br",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "br",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {},
-                  "ref": null,
-                  "rendered": null,
-                  "type": "br",
-                },
-              ],
-              "type": "div",
-            },
+            "rendered": null,
             "type": "div",
           },
           Object {
@@ -317,7 +264,7 @@ ShallowWrapper {
               "children": Array [
                 <button
                   className="viewphotos"
-                  onClick={[Function]}
+                  type="button"
                 >
                   View Photos
                 </button>,
@@ -329,6 +276,7 @@ ShallowWrapper {
                       "right": "131px",
                     }
                   }
+                  type="button"
                 >
                   <div>
                     <svg
@@ -350,6 +298,7 @@ ShallowWrapper {
                 <button
                   className="save"
                   onClick={[Function]}
+                  type="button"
                 >
                   <div>
                     <span>
@@ -416,7 +365,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": "View Photos",
                   "className": "viewphotos",
-                  "onClick": [Function],
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": "View Photos",
@@ -448,6 +397,7 @@ ShallowWrapper {
                   "style": Object {
                     "right": "131px",
                   },
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -548,6 +498,7 @@ ShallowWrapper {
                   </div>,
                   "className": "save",
                   "onClick": [Function],
+                  "type": "button",
                 },
                 "ref": null,
                 "rendered": Object {
@@ -741,6 +692,7 @@ ShallowWrapper {
           <div
             className="container"
             onClick={[Function]}
+            role="presentation"
             style={
               Object {
                 "backgroundImage": "url()",
@@ -749,17 +701,11 @@ ShallowWrapper {
           >
             <div
               className="content"
-            >
-              <div>
-                <br />
-                <br />
-                <br />
-              </div>
-            </div>
+            />
             <div>
               <button
                 className="viewphotos"
-                onClick={[Function]}
+                type="button"
               >
                 View Photos
               </button>
@@ -771,6 +717,7 @@ ShallowWrapper {
                     "right": "131px",
                   }
                 }
+                type="button"
               >
                 <div>
                   <svg
@@ -792,6 +739,7 @@ ShallowWrapper {
               <button
                 className="save"
                 onClick={[Function]}
+                type="button"
               >
                 <div>
                   <span>
@@ -863,17 +811,11 @@ ShallowWrapper {
             "children": Array [
               <div
                 className="content"
-              >
-                <div>
-                  <br />
-                  <br />
-                  <br />
-                </div>
-              </div>,
+              />,
               <div>
                 <button
                   className="viewphotos"
-                  onClick={[Function]}
+                  type="button"
                 >
                   View Photos
                 </button>
@@ -885,6 +827,7 @@ ShallowWrapper {
                       "right": "131px",
                     }
                   }
+                  type="button"
                 >
                   <div>
                     <svg
@@ -906,6 +849,7 @@ ShallowWrapper {
                 <button
                   className="save"
                   onClick={[Function]}
+                  type="button"
                 >
                   <div>
                     <span>
@@ -965,6 +909,7 @@ ShallowWrapper {
             ],
             "className": "container",
             "onClick": [Function],
+            "role": "presentation",
             "style": Object {
               "backgroundImage": "url()",
             },
@@ -976,57 +921,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": <div>
-                  <br />
-                  <br />
-                  <br />
-                </div>,
                 "className": "content",
               },
               "ref": null,
-              "rendered": Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <br />,
-                    <br />,
-                    <br />,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {},
-                    "ref": null,
-                    "rendered": null,
-                    "type": "br",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {},
-                    "ref": null,
-                    "rendered": null,
-                    "type": "br",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {},
-                    "ref": null,
-                    "rendered": null,
-                    "type": "br",
-                  },
-                ],
-                "type": "div",
-              },
+              "rendered": null,
               "type": "div",
             },
             Object {
@@ -1037,7 +935,7 @@ ShallowWrapper {
                 "children": Array [
                   <button
                     className="viewphotos"
-                    onClick={[Function]}
+                    type="button"
                   >
                     View Photos
                   </button>,
@@ -1049,6 +947,7 @@ ShallowWrapper {
                         "right": "131px",
                       }
                     }
+                    type="button"
                   >
                     <div>
                       <svg
@@ -1070,6 +969,7 @@ ShallowWrapper {
                   <button
                     className="save"
                     onClick={[Function]}
+                    type="button"
                   >
                     <div>
                       <span>
@@ -1136,7 +1036,7 @@ ShallowWrapper {
                   "props": Object {
                     "children": "View Photos",
                     "className": "viewphotos",
-                    "onClick": [Function],
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": "View Photos",
@@ -1168,6 +1068,7 @@ ShallowWrapper {
                     "style": Object {
                       "right": "131px",
                     },
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": Object {
@@ -1268,6 +1169,7 @@ ShallowWrapper {
                     </div>,
                     "className": "save",
                     "onClick": [Function],
+                    "type": "button",
                   },
                   "ref": null,
                   "rendered": Object {
