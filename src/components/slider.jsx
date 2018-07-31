@@ -72,7 +72,7 @@ class Slider extends React.Component {
               :
               { mainPhoto.desc }
             </span>
-            <span className="toggle" onClick={this.toggleSliderView}>
+            <span role="presentation" className="toggle" onClick={this.toggleSliderView}>
               { showSlider ? (
                 <span>
                   <span className="hidephoto">
@@ -95,10 +95,10 @@ class Slider extends React.Component {
             </span>
           </div>
           <div className="slideshow-inner" onMouseEnter={!showSlider ? this.toggleSliderView : null}>
-            {photos.map((photo, key) => (photo.url === mainPhoto.url ? (
-              <img style={{ filter: 'brightness(100%)', transform: translate, transition: 'transform .3s ease-out' }} alt="litthumbnail" className="thumbnail" src={ photo.url } onClick={ (event) => selectPhoto(event.target)} key={key} />
+            {photos.map(photo => (photo.url === mainPhoto.url ? (
+              <img role="presentation" style={{ filter: 'brightness(100%)', transform: translate, transition: 'transform .3s ease-out' }} alt="litthumbnail" className="thumbnail" src={photo.url} onClick={event => selectPhoto(event.target)} key={photo.id} />
             ) : (
-              <img style={{ transform: translate, transition: 'transform .3s ease-out' }} alt="dimthumbnail" className="thumbnail" src={ photo.url } onClick={ (event) => selectPhoto(event.target)} key={key} />
+              <img role="presentation" style={{ transform: translate, transition: 'transform .3s ease-out' }} alt="dimthumbnail" className="thumbnail" src={photo.url} onClick={event => selectPhoto(event.target)} key={photo.id} />
             )))}
           </div>
         </div>
