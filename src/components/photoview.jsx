@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from './slider';
 
-import '../styles/photoview.css';
+import styles from '../styles/photoview.css';
 
 class PhotoView extends React.Component {
   constructor(props) {
@@ -74,28 +74,28 @@ class PhotoView extends React.Component {
     const { content, toggleCarousel } = this.props;
     const { mainPhoto, mainPhoto: { url } } = this.state;
     return (
-      <div className="popup">
-        <div className="popup_inner">
+      <div className={styles.popup}>
+        <div className={styles.popup_inner}>
           <div>
-            <svg onClick={() => toggleCarousel()} className="exit" height="25" width="25">
+            <svg onClick={() => toggleCarousel()} className={styles.exit} height="25" width="25">
               <line x1="0" y1="0" x2="25" y2="25" />
               <line x1="25" y1="0" x2="0" y2="25" />
             </svg>
           </div>
-          <div className="center">
-            <img aria-hidden="true" alt="" onClick={this.selectNext} className="pic" src={url} />
-            <div className="back" role="presentation" onClick={this.selectPrevious}>
-              <svg className="backbutton" viewBox="0 0 18 18">
+          <div className={styles.center}>
+            <img aria-hidden="true" alt="" onClick={this.selectNext} className={styles.pic} src={url} />
+            <div className={styles.back} role="presentation" onClick={this.selectPrevious}>
+              <svg className={styles.backbutton} viewBox="0 0 18 18">
                 <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd" />
               </svg>
             </div>
-            <div className="forward" role="presentation" onClick={this.selectNext}>
-              <svg className="forwardbutton" viewBox="0 0 18 18">
+            <div className={styles.forward} role="presentation" onClick={this.selectNext}>
+              <svg className={styles.forwardbutton} viewBox="0 0 18 18">
                 <path d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fillRule="evenodd" />
               </svg>
             </div>
           </div>
-          <div className="slider">
+          <div className={styles.slider}>
             <Slider content={content} mainPhoto={mainPhoto} selectPhoto={this.selectPhoto} />
           </div>
         </div>

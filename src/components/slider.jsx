@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/slider.css';
+import styles from '../styles/slider.css';
 
 class Slider extends React.Component {
   constructor(props) {
@@ -63,43 +63,43 @@ class Slider extends React.Component {
     const { mainPhoto, content: { photos }, selectPhoto } = this.props;
     const { showSlider, translate } = this.state;
     return (
-      <div className="outer">
-        <div className="slideshow" style={showSlider ? { transform: 'translate(0px, 0px)', transition: 'transform .2s ease-out' } : { transform: 'translate(0px, 67px)', transition: 'transform .2s ease-out' }}>
-          <div className="text">
-            <span className="descriptions">
+      <div className={styles.outer}>
+        <div className={styles.slideshow} style={showSlider ? { transform: 'translate(0px, 0px)', transition: 'transform .2s ease-out' } : { transform: 'translate(0px, 67px)', transition: 'transform .2s ease-out' }}>
+          <div className={styles.text}>
+            <span className={styles.descriptions}>
               { photos.indexOf(mainPhoto) + 1}
               /
               { photos.length }
               :
               { mainPhoto.desc }
             </span>
-            <span role="presentation" className="toggle" onClick={this.toggleSliderView}>
+            <span role="presentation" className={styles.toggle} onClick={this.toggleSliderView}>
               { showSlider ? (
                 <span>
-                  <span className="hidephoto">
+                  <span className={styles.hidephoto}>
                     Hide photo list
                   </span>
-                  <span className="triangle">
+                  <span className={styles.triangle}>
                     &#x25BC;
                   </span>
                 </span>
               ) : (
                 <span>
-                  <span className="hidephoto">
+                  <span className={styles.hidephoto}>
                     Show photo list
                   </span>
-                  <span className="triangle">
+                  <span className={styles.triangle}>
                     &#x25B2;
                   </span>
                 </span>
               )}
             </span>
           </div>
-          <div className="slideshow-inner" onMouseEnter={!showSlider ? this.toggleSliderView : null}>
+          <div className={styles.slideshowInner} onMouseEnter={!showSlider ? this.toggleSliderView : null}>
             {photos.map(photo => (photo.url === mainPhoto.url ? (
-              <img role="presentation" style={{ filter: 'brightness(100%)', transform: translate, transition: 'transform .3s ease-out' }} alt="litthumbnail" className="thumbnail" src={photo.url} onClick={event => selectPhoto(event.target)} key={photo.id} />
+              <img role="presentation" style={{ filter: 'brightness(100%)', transform: translate, transition: 'transform .3s ease-out' }} alt="litthumbnail" className={styles.thumbnail} src={photo.url} onClick={event => selectPhoto(event.target)} key={photo.id} />
             ) : (
-              <img role="presentation" style={{ transform: translate, transition: 'transform .3s ease-out' }} alt="dimthumbnail" className="thumbnail" src={photo.url} onClick={event => selectPhoto(event.target)} key={photo.id} />
+              <img role="presentation" style={{ transform: translate, transition: 'transform .3s ease-out' }} alt="dimthumbnail" className={styles.thumbnail} src={photo.url} onClick={event => selectPhoto(event.target)} key={photo.id} />
             )))}
           </div>
         </div>

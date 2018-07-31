@@ -20,7 +20,7 @@
   cursor: pointer
 }
 
-.slideshow-inner {
+.slideshowInner {
   width: 880px;
   position: relative;
   overflow: hidden;
