@@ -21,6 +21,10 @@ const photoSchema = mongoose.Schema({
   saved: Boolean,
 });
 
+const skipInit = process.env.NODE_ENV === "test"
+
+//const Page = mongoose.model('Page', photoSchema, "Page", skipInit);
+
 const Page = mongoose.model('Page', photoSchema);
 
 const reDirect = (num, callback) => {

@@ -1,9 +1,8 @@
 import React from 'react';
-//import ReactDOM from 'react-dom';
 import axios from 'axios';
-import '../styles/app.css';
 import PhotoView from './photoview.jsx';
 import Share from './share.jsx';
+import '../styles/app.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,39 +16,34 @@ class App extends React.Component {
         photos: [
           { url: '' },
         ],
+        saved: false,
       },
     };
-    this.saved = this.state.content.saved;
   }
 
   componentDidMount() {
     let id = window.location.pathname.slice(8);
     id = parseInt(id.substring(0, id.length));
     axios.get(`/photos/${id}`)
-    .then(res => this.setState({
-      content: res.data[0]
-    }));
+      .then(res => this.setState({
+        content: res.data[0],
+      }));
   }
 
   toggleCarousel() {
-    this.setState({
-      showPhotoView: !this.state.showPhotoView
-    })
+    this.setState(prevState => ({ showPhotoView: !prevState.showPhotoView }));
   }
 
   toggleShareView() {
-    this.setState({
-      showShareView: !this.state.showShareView
-    })
+    this.setState(prevState => ({ showShareView: !prevState.showShareView }));
   }
 
   toggleSaveView() {
+    const { content } = this.state;
     this.saved = !this.saved;
-    this.setState({
-      showSaveView: !this.state.showSaveView
-    })
-    axios.post('/saved', `${this.state.content.id}, ${!this.state.content.saved}`)
-    .then(res => {
+    this.setState(prevState => ({ showSaveView: !prevState.showSaveView }));
+    axios.post('/saved', `${content.id}, ${!content.saved}`)
+      .then(res => {
       let copy = Object.assign({}, this.state.content);
       copy.saved = !copy.saved;
       this.setState({
