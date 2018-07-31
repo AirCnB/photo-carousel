@@ -2,13 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 import { render } from 'enzyme';
-import request from 'supertest';
 
 import App from '../src/components/app.jsx';
 import PhotoView from '../src/components/photoview.jsx';
 import Slider from '../src/components/slider.jsx';
-// import app from '../server/server.js';
-//const app = require('../server/server')
 
 describe('<App />', () => {
 
@@ -62,31 +59,28 @@ describe('<App />', () => {
     expect(x === y).toBe(false);
   });
 
-  it('changes display photo in PhotoView on arrow key press', () => {
-    const component = mount(<PhotoView content={ {'photos':[{'url':'1'},{'url':'2'},{'url':'3'}]} }/>);
-    console.log(component.find('document'))
-    // let y = component.state().mainPhoto.url
-    // component.find('.popup').simulate('keydown', {key: 'ArrowRight'});
-    // let x = component.state().mainPhoto.url
-    // console.log(x)
-    // console.log(y)
-    //expect(x).toBe('3');
+  it('mounts the share component on click', () => {
+    const component = mount(<App />);
+    let x = component.state().showShareView;
+    component.find('.share').simulate('click');
+    let y = component.state().showShareView;
+    expect(x === y).toBe(false);
+  });
+
+  it('dismounts the share component on click', () => {
+    const component = mount(<App />);
+    component.find('.share').simulate('click');
+    component.find('.exitshare').simulate('click');
+    let x = component.state().showShareView;
+    expect(x).toBe(false);
+  });
+
+  it('dismounts the share component on click', () => {
+    const component = mount(<App />);
+    let x = component.state().showSaveView;
+    component.find('.save').simulate('click');
+    let y = component.state().showSaveView;
+    expect(x === y).toBe(false);
   });
 
 })
-
-// describe('GET aircnb/:id', () => {
-//   test('should respond with status code 200', () => {
-//     return request(app)
-//       .get('/aircnb/1')
-//       .expect(200);
-//   });
-// })
-
-// describe('Test the root path', () => {
-//   test('It should response the GET method', () => {
-//     return request(app).get("/photos/1").then(response => {
-//       expect(response.statusCode).toBe(200)
-//     })
-//   });
-// })
