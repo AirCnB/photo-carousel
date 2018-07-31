@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/slider.css';
 
 class Slider extends React.Component {
@@ -106,5 +107,11 @@ class Slider extends React.Component {
     );
   }
 }
+
+Slider.propTypes = {
+  mainPhoto: PropTypes.shape({ url: PropTypes.string.isRequired }).isRequired,
+  content: PropTypes.shape({ photos: PropTypes.array.isRequired }).isRequired,
+  selectPhoto: PropTypes.func.isRequired,
+};
 
 export default Slider;

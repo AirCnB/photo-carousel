@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../styles/share.css';
 
 const Share = ({ toggleShareView }) => {
@@ -95,6 +96,10 @@ const Share = ({ toggleShareView }) => {
       </div>
     </div>
   );
+};
+
+Share.propTypes = {
+  toggleShareView: PropTypes.func.isRequired,
 };
 
 export default Share;

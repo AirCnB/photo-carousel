@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import PhotoView from './photoview.jsx';
-import Share from './share.jsx';
+import PhotoView from './photoview';
+import Share from './share';
 import '../styles/app.css';
 
 class App extends React.Component {
@@ -25,9 +25,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    let id = window.location.pathname.slice(8);
-    id = parseInt(id.substring(0, id.length));
-    axios.get(`/photos/${id}`)
+    let id = window.location.pathname.slice(10);
+    id = parseInt(id.substring(0, id.length), 10);
+    axios.get(`/api/listings/${id}/photos`)
       .then(res => this.setState({
         content: res.data[0],
       }));

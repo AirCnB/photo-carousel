@@ -1,16 +1,18 @@
 import React from 'react';
-import Slider from './slider.jsx';
+import PropTypes from 'prop-types';
+import Slider from './slider';
 
 import '../styles/photoview.css';
 
 class PhotoView extends React.Component {
   constructor(props) {
     super(props);
+    const { content: { photos } } = this.props;
     this.selectNext = this.selectNext.bind(this);
     this.selectPrevious = this.selectPrevious.bind(this);
     this.selectPhoto = this.selectPhoto.bind(this);
     this.state = {
-      mainPhoto: this.props.content.photos[0],
+      mainPhoto: photos[0],
     };
   }
 
@@ -60,7 +62,7 @@ class PhotoView extends React.Component {
   }
 
   handleKeyDown(event) {
-    const key = event.key;
+    const { key } = event;
     if (key === 'ArrowLeft') {
       this.selectPrevious();
     } else if (key === 'ArrowRight') {
@@ -81,7 +83,7 @@ class PhotoView extends React.Component {
             </svg>
           </div>
           <div className="center">
-            <img role="presentation" onClick={this.selectNext} className="pic" src={url} />
+            <img aria-hidden="true" alt="" onClick={this.selectNext} className="pic" src={url} />
             <div className="back" role="presentation" onClick={this.selectPrevious}>
               <svg className="backbutton" viewBox="0 0 18 18">
                 <path d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z" fillRule="evenodd" />
@@ -101,5 +103,10 @@ class PhotoView extends React.Component {
     );
   }
 }
+
+PhotoView.propTypes = {
+  content: PropTypes.shape({ photos: PropTypes.array.isRequired }).isRequired,
+  toggleCarousel: PropTypes.func.isRequired,
+};
 
 export default PhotoView;
