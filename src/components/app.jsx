@@ -7,6 +7,8 @@ import '../styles/app.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.toggleCarousel = this.toggleCarousel.bind(this);
+    this.detachPhotoView = this.detachPhotoView.bind(this);
     this.state = {
       showPhotoView: false,
       showShareView: false,
@@ -43,33 +45,33 @@ class App extends React.Component {
     this.saved = !this.saved;
     this.setState(prevState => ({ showSaveView: !prevState.showSaveView }));
     axios.post('/saved', `${content.id}, ${!content.saved}`)
-      .then(res => {
-      let copy = Object.assign({}, this.state.content);
-      copy.saved = !copy.saved;
-      this.setState({
-        content: copy
-      })
-    })
+      .then(() => {
+        const copy = Object.assign({}, content);
+        copy.saved = !copy.saved;
+        this.setState({
+          content: copy,
+        });
+      });
   }
 
   detachPhotoView(button) {
     if (button === 'share') {
       this.toggleShareView();
-    } else if (button === 'save'){
+    } else if (button === 'save') {
       this.toggleSaveView();
     }
     setTimeout(() => {
       this.setState({
-        showPhotoView: false
-      })
-    })
-
+        showPhotoView: false,
+      });
+    });
   }
 
   render() {
+    const { content: { saved, photos } } = this.state;
     return (
       <div>
-        <div className="container" onClick={ this.toggleCarousel.bind(this) } style={{ backgroundImage: `url(${this.state.content.photos[0].url})` }}>
+        <div className="container" onClick={this.toggleCarousel} style={{ backgroundImage: `url(${photos[0].url})` }}>
           <div className="content">
             <div>
               <br />
@@ -78,13 +80,17 @@ class App extends React.Component {
             </div>
           </div>
           <div>
-            <button className="viewphotos" onClick={ this.toggleCarousel.bind(this) }>View Photos</button>
-            <button className="share" style={ this.state.content.saved ? { right: '140px' } : { right: '131px' } }onClick={ this.detachPhotoView.bind(this, 'share') }  >
+            <button type="button" className="viewphotos" onClick={this.toggleCarousel}>
+              View Photos
+            </button>
+            <button type="button" className="share" style={saved ? { right: '140px' } : { right: '131px' }} onClick={() => this.detachPhotoView('share')}>
               <div>
-                <svg className="largescreen" viewBox="0 0 24 24" >
-                  <path d="m22.19 8.5h-3.14a.81.81 0 0 0 -.81.8c0 .44.36.8.81.8h2.33v12.31h-18.76v-12.31h3.11c.45 0 .81-.36.81-.8a.81.81 0 0 0 -.81-.8h-3.92a.81.81 0 0 0 -.81.8v13.91c0 .44.36.8.81.8h20.38c.45 0 .81-.36.81-.8v-13.91a.81.81 0 0 0 -.81-.8zm-14.11-3.82c.19 0 .36-.06.51-.18l2.01-1.58.6-.47v13.79c0 .44.36.8.81.8s.81-.36.81-.8v-13.79l.59.47 2.01 1.58a.8.8 0 0 0 .5.18.81.81 0 0 0 .63-.3.79.79 0 0 0 -.13-1.12l-3.92-3.09a.42.42 0 0 0 -.07-.04l-.07-.03-.01-.01-.05-.03a.76.76 0 0 0 -.3-.06.81.81 0 0 0 -.3.06l-.01.01-.06.04-.07.03a.42.42 0 0 0 -.07.04l-3.92 3.09a.79.79 0 0 0 -.13 1.12c.16.19.39.3.63.3z" fillRule="evenodd"></path>
+                <svg className="largescreen" viewBox="0 0 24 24">
+                  <path d="m22.19 8.5h-3.14a.81.81 0 0 0 -.81.8c0 .44.36.8.81.8h2.33v12.31h-18.76v-12.31h3.11c.45 0 .81-.36.81-.8a.81.81 0 0 0 -.81-.8h-3.92a.81.81 0 0 0 -.81.8v13.91c0 .44.36.8.81.8h20.38c.45 0 .81-.36.81-.8v-13.91a.81.81 0 0 0 -.81-.8zm-14.11-3.82c.19 0 .36-.06.51-.18l2.01-1.58.6-.47v13.79c0 .44.36.8.81.8s.81-.36.81-.8v-13.79l.59.47 2.01 1.58a.8.8 0 0 0 .5.18.81.81 0 0 0 .63-.3.79.79 0 0 0 -.13-1.12l-3.92-3.09a.42.42 0 0 0 -.07-.04l-.07-.03-.01-.01-.05-.03a.76.76 0 0 0 -.3-.06.81.81 0 0 0 -.3.06l-.01.01-.06.04-.07.03a.42.42 0 0 0 -.07.04l-3.92 3.09a.79.79 0 0 0 -.13 1.12c.16.19.39.3.63.3z" fillRule="evenodd" />
                 </svg>
-                <span className="sharetext" >Share</span>
+                <span className="sharetext">
+                  Share
+                </span>
               </div>
             </button>
             <button className="save" onClick={ this.detachPhotoView.bind(this, 'save') }>
