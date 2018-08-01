@@ -11,7 +11,7 @@
     "build": "webpack",
     "start": "nodemon ./server/app.js",
     "eslint": "eslint . --ext .jsx --ext .js",
-    "seed" : "node ./database/index.js"
+    "seed" : "node ./database/seed.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
