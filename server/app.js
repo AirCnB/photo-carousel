@@ -7,6 +7,10 @@ const app = express();
 app.use('/listings/:id', express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.listen(3001, () => {
+  console.log('Listening on port ', 3001);
+});
+
 app.get('/api/listings/:id/photos', (req, res) => {
   const id = Number(req.params.id);
   db.reDirect(id, (err, docs) => {
