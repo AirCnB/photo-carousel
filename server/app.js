@@ -15,9 +15,9 @@ app.get('/api/listings/:id/photos', (req, res) => {
   const id = Number(req.params.id);
   db.reDirect(id, (err, docs) => {
     if (err) {
-      console.log(err);
+      res.status(500).send(err);
     } else {
-      res.send(docs);
+      res.status(200).send(docs);
     }
   });
 });
@@ -28,9 +28,9 @@ app.post('/saved', (req, res) => {
   const reqVal = request[1];
   db.updateSave(reqId, reqVal, (err, docs) => {
     if (err) {
-      console.log(err);
+      res.status(500).send(err);
     } else {
-      res.send(docs);
+      res.status(200).send(docs);
     }
   });
 });
