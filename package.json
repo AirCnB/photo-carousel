@@ -10,7 +10,8 @@
     "test": "jest --detectOpenHandles",
     "build": "webpack",
     "start": "nodemon ./server/app.js",
-    "eslint": "eslint . --ext .jsx --ext .js"
+    "eslint": "eslint . --ext .jsx --ext .js",
+    "seed" : "node ./database/index.js"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
