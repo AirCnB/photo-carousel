@@ -36,5 +36,3 @@ app.post('/saved', (req, res) => {
 });
 
 module.exports = app;
-
-db.getData();
