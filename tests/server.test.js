@@ -7,10 +7,10 @@ import request from 'supertest';
  */
 
 describe('Test the root path', () => {
-  test('It should response the GET method', () => {
+  test('It should response the GET method', (done) => {
     return request(app).get("/api/listings/1/photos").then(response => {
       console.log(response.statusCode);
       expect(response.statusCode).toBe(200)
-    }).catch(err => console.log(err))
+    }).then(() => { done() }).catch(err => console.log(err))
   });
 })
