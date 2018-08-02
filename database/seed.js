@@ -3,11 +3,14 @@ const db = require('./index.js');
 const path = require('path');
 
 const save = (data) => {
-  db.Page.insertMany(data, (err) => {
-    if (err) {
-      console.log('Duplicate data not inserted.');
-    }
-  });
+  db.Page.deleteMany({})
+    .then(() => {
+      db.Page.insertMany(data)
+        .then(() => db.connection.close(() => {
+          console.log('Database connection closed')
+        }))
+        .catch(err => console.log(err))
+    })
 };
 
 const insertData = (data) => {

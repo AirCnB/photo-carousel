@@ -43,7 +43,6 @@ class App extends React.Component {
 
   toggleSaveView() {
     const { content } = this.state;
-    this.saved = !this.saved;
     this.setState(prevState => ({ showSaveView: !prevState.showSaveView }));
     axios.post('/saved', `${content.id}, ${!content.saved}`)
       .then(() => {

@@ -1,0 +1,5 @@
+# comment
+node_modules
+.circleci
+coverage
+.DS_Store
