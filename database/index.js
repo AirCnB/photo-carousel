@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/aircnb_photos');
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', () => {
+const connection = mongoose.connection;
+connection.on('error', console.error.bind(console, 'connection error: '));
+connection.once('open', () => {
   console.log('Connected to aircnb_photos database');
 });
 
@@ -47,3 +47,4 @@ const updateSave = (num, boolean, callback) => {
 module.exports.reDirect = reDirect;
 module.exports.updateSave = updateSave;
 module.exports.Page = Page;
+module.exports.connection = connection;

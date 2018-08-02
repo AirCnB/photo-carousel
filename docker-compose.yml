@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  photo_server:
+    build: ./
+    command: sh -c 'npm install; npm run seed; npm start'
+    depends_on:
+      - 'database'
+    ports:
+      - '3001:3001'
+
+  database:
+    image: mongo:latest
