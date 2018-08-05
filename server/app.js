@@ -22,7 +22,7 @@ app.get('/api/listings/:id/photos', (req, res) => {
   });
 });
 
-app.post('/saved', (req, res) => {
+app.post('/api/listings/:id/saved', (req, res) => {
   const request = Object.keys(req.body)[0].split(', ');
   const reqId = request[0];
   const reqVal = request[1];

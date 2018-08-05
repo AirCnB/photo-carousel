@@ -35,16 +35,23 @@ class App extends React.Component {
 
   toggleCarousel() {
     this.setState(prevState => ({ showPhotoView: !prevState.showPhotoView }));
+    this.state.showPhotoView === false ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'scroll';
   }
 
   toggleShareView() {
     this.setState(prevState => ({ showShareView: !prevState.showShareView }));
+    this.state.showShareView === false ? document.body.style.overflow = 'hidden' : document.body.style.overflow = 'scroll';
   }
 
   toggleSaveView() {
+    let id = window.location.pathname.slice(10);
+    id = parseInt(id.substring(0, id.length), 10);
     const { content } = this.state;
     this.setState(prevState => ({ showSaveView: !prevState.showSaveView }));
-    axios.post('/saved', `${content.id}, ${!content.saved}`)
+    setTimeout(() => {
+      document.body.style.overflow = 'scroll';
+    });
+    axios.post(`/api/listings/${id}/saved`, `${content.id}, ${!content.saved}`)
       .then(() => {
         const copy = Object.assign({}, content);
         copy.saved = !copy.saved;
